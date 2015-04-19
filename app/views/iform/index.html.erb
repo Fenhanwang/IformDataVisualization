@@ -1,0 +1,135 @@
+<div class="row">
+	<%#= link_to "hello", { :controller => "iform", :action => "hello" }, :remote => true %>
+<!-- 	<p><%#= @headerme %></p>
+
+ -->
+ 	<h2>Step Chart</h2>
+ 	<canvas id="chart2" height="200"></canvas>
+	<!-- <div id="datachart" class="col-sm-12"></div> -->
+	<h2>Calorie Chart</h2>
+	<canvas id="chart3" height="200"></canvas>
+	<h2>Distance Chart</h2>
+	<canvas id="chart4" height="200"></canvas>
+</div>
+
+
+<script type="text/javascript">
+$("#chart2").width($("#jumbotronid").width());
+$("#chart3").width($("#jumbotronid").width());
+$("#chart4").width($("#jumbotronid").width());
+
+var dataline = {
+    labels: gon.labelOne,
+    datasets: [
+        {
+            label: "My First dataset",
+            fillColor: "rgba(255,0,0,0.2)",
+            strokeColor: "rgba(255,0,0,1)",
+            pointColor: "rgba(255,0,0,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(255,0,0,0.2)",
+            data: gon.dataOne
+        },
+        {
+            label: "My Second dataset",
+            fillColor: "rgba(0,0,255,0.2)",
+            strokeColor: "rgba(0,0,255,1)",
+            pointColor: "rgba(0,0,255,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(0,0,255,0.2)",
+            data: gon.dataTwo
+        },
+        {
+            label: "My Third dataset",
+            fillColor: "rgba(0,255,0,0.2)",
+            strokeColor: "rgba(0,255,0,1)",
+            pointColor: "rgba(0,255,0,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(0,255,0,0.2)",
+            data: gon.dataThree
+        }
+    ]
+};
+
+var dataradio = {
+    labels: gon.labelOne,
+    datasets: [
+        {
+            label: "My First dataset",
+            fillColor: "rgba(255,0,0,0.2)",
+            strokeColor: "rgba(255,0,0,1)",
+            pointColor: "rgba(255,0,0,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(255,0,0,0.2)",
+            data: gon.caloiesOne
+        },
+        {
+            label: "My Second dataset",
+            fillColor: "rgba(0,0,255,0.2)",
+            strokeColor: "rgba(0,0,255,1)",
+            pointColor: "rgba(0,0,255,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(0,0,255,0.2)",
+            data: gon.caloiesTwo
+        },
+        {
+            label: "My Third dataset",
+            fillColor: "rgba(0,255,0,0.2)",
+            strokeColor: "rgba(0,255,0,1)",
+            pointColor: "rgba(0,255,0,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(0,255,0,0.2)",
+            data: gon.caloiesThree
+        }
+    ]
+};
+
+var databar = {
+    labels: gon.labelOne,
+    datasets: [
+        {
+            label: "My First dataset",
+            fillColor: "rgba(255,0,0,0.2)",
+            strokeColor: "rgba(255,0,0,1)",
+            pointColor: "rgba(255,0,0,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(255,0,0,0.2)",
+            data: gon.distanceOne
+        },
+        {
+            label: "My Second dataset",
+            fillColor: "rgba(0,0,255,0.2)",
+            strokeColor: "rgba(0,0,255,1)",
+            pointColor: "rgba(0,0,255,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(0,0,255,0.2)",
+            data: gon.distanceTwo
+        },
+        {
+            label: "My Third dataset",
+            fillColor: "rgba(0,255,0,0.2)",
+            strokeColor: "rgba(0,255,0,1)",
+            pointColor: "rgba(0,255,0,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(0,255,0,0.2)",
+            data: gon.distanceThree
+        }
+    ]
+};
+
+var ctx = document.getElementById("chart2").getContext("2d");
+var myLineChart = new Chart(ctx).Line(dataline);
+var ctx = document.getElementById("chart3").getContext("2d");
+var myLineChart = new Chart(ctx).Radar(dataradio);
+var ctx = document.getElementById("chart4").getContext("2d");
+var myLineChart = new Chart(ctx).Bar(dataradio);
+</script>
